@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -22,18 +22,43 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function Header() {
-  const [langAnchor, setLangAnchor] = React.useState(null);
-  const [location, setLocation] = React.useState(""); // State for selected location
+  const [langAnchor, setLangAnchor] = useState(null);
+  const [location, setLocation] = useState(""); // State for selected location
 
   const handleLangOpen = (event) => setLangAnchor(event.currentTarget);
   const handleLangClose = () => setLangAnchor(null);
 
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value);
-  };
-
   // Example list of locations
   const locations = ["Delhi", "Mumbai", "Jaipur", "Bangalore", "Chennai"];
+
+  // Detect location function
+  const detectLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          console.log("Latitude:", latitude, "Longitude:", longitude);
+
+          // Abhi ke liye hardcoded city dikhayenge
+          // Future me API call karke real city fetch kar sakte ho
+          setLocation("Neemuch (MP)");
+        },
+        () => alert("Location access denied")
+      );
+    } else {
+      alert("Geolocation not supported in this browser");
+    }
+  };
+
+  // Handle location change
+  const handleLocationChange = (event) => {
+    const value = event.target.value;
+    if (value === "detect") {
+      detectLocation();
+    } else {
+      setLocation(value);
+    }
+  };
 
   return (
     <AppBar
