@@ -43,17 +43,17 @@ export default function SearchSection() {
 
   // ✅ Slider images
   const images = [
-    "public/img/slide1.jpeg",
-    "public/img/spa-beauty-salon-facebook-cover-social-media-banner-template-design_976179-274.png",
-    "public/img/YourStoryHindi29-june-ka-itihas-history-statistics-day-globe-theatre-apple-iphone-sell-1751174216168.png"
+    "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_webflight_2024.webp",
+    "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/mandapweb.png?t=1",
+    "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_hotels_2024.webp"
   ];
 
   // ✅ 4 Grid images
   const gridItems = [
-    { image: "public/img/image(38).png" },
-    { image: "public/img/full-body-young-employee-laborer-260nw-2440020209.png" },
-    { image: "public/img/360_F_285834130_nM5F6xl8lh8Mhb00ksNXBS6iBH9bMExz.png" },
-    { image: "public/img/imag(38).png" }
+    { image: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/b2b_square_hotkey.webp?w=1920&q=75" },
+    { image: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/repair_square_hotkey.webp?w=1920&q=75" },
+    { image: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/realestate_square_hotkey.webp?w=1920&q=75" },
+    { image: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/doctor_square_hotkey.webp?w=1920&q=75" }
   ];
 
   // ✅ Categories data
@@ -94,27 +94,27 @@ export default function SearchSection() {
 
   // ✅ Bills & Recharge section
   const billsRecharge = [
-    { name: "Mobile", img: "./img/photo-1511707171634-5f897ff02aa9.jpeg" },
-    { name: "Electricity", img: "./img/pexels-pixabay-207489.jpg" },
-    { name: "Gas", img: "./img/360_F_406147347_aJkSB0JxwcLMPLIZErVFi5Q5ZtUSR14r.jpg" },
-    { name: "Water", img: "./img/pexels-photo-416528.jpeg" }
+    { name: "Mobile", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_mobile.svg?w=128&q=75" },
+    { name: "Electricity", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_electricity.svg?w=128&q=75" },
+    { name: "Gas", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_gas.svg?w=128&q=75" },
+    { name: "Water", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_water.svg?w=128&q=75" }
   ];
 
   // ✅ Travel Booking section
   const travelBooking = [
-    { name: "Flight", img: "img/airplane-in-sky-background-illustration-ai-generative-free-photo.jpg" },
-    { name: "Bus", img: "./img/banner6.jpg" },
-    { name: "Train", img: "./img/images(1).jpeg" },
-    { name: "Car rentals", img: "./img/images(2).jpeg" }
+    { name: "Flight", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_flight.svg?w=128&q=75" },
+    { name: "Bus", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_bus.svg?w=128&q=75" },
+    { name: "Train", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_train.svg?w=128&q=75" },
+    { name: "Car rentals", img: "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/bt_carhire.svg?w=128&q=75" }
   ];
 
   // ✅ Trending Searches section
   const trendingSearches = [
-    { name: "Photo studio", img: "img/image(18).png" },
-    { name: "Car Rental", img: "img/images(2).jpeg" },
-    { name: "Hospitals", img: "img/hospital-building-outside-composition-vector.png" },
-    { name: "Lawyer", img: "img/law-and-authority-lawyer-concept-judgment-gavel-hammer-in-court.png" },
-    { name: "Restaurants", img: "img/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.png" }
+    { name: "Coffe Shope", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10104727.jpg?w=256&q=75" },
+    { name: "b ED colleges", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10968242.jpg?w=256&q=75" },
+    { name: "Sweets Shops", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10465567.jpg?w=256&q=75" },
+    { name: "Night Clubs", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10337610.jpg?w=256&q=75" },
+    { name: "Restaurants", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10408938.jpg?w=256&q=75" }
   ];
 
   return (
