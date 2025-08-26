@@ -117,6 +117,9 @@ export default function SearchSection() {
     { name: "Restaurants", img: "https://content.jdmagicbox.com/comp/def_content/ncat_id/10408938.jpg?w=256&q=75" }
   ];
 
+
+  
+
   return (
     <Box sx={{ mt: 12, px: 3 }}>
       {/* Rotating text */}
@@ -212,10 +215,10 @@ export default function SearchSection() {
 
       {/* Bills & Recharge Box */}
       <Box sx={{ border: '1px solid #ddd', borderRadius: '10px', p: 2, mb: 4 }}>
-        <Typography variant="h6" sx={{ mb: 1 }}>Bills & Recharge</Typography>
+        <Typography variant="h6" sx={{ mb: 2 }}>Bills & Recharge</Typography>
         <Typography variant="body2" sx={{ color: "gray", mb: 1 }}>Pay your bills & recharge instantly with Justdial</Typography>
         <Typography variant="body2" sx={{ color: "blue", mb: 2 }}>Explore More</Typography>
-        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+        <Box sx={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
           {billsRecharge.map((item, i) => (
             <Card key={i} sx={{ width: 180, textAlign: "center" }}>
               <CardMedia component="img" height="120" image={item.img} alt={item.name} />
@@ -230,7 +233,7 @@ export default function SearchSection() {
         <Typography variant="h6" sx={{ mb: 1 }}>Travel Booking</Typography>
         <Typography variant="body2" sx={{ color: "gray", mb: 1 }}>Instant ticket bookings for your best travel experience</Typography>
         <Typography variant="body2" sx={{ color: "blue", mb: 2 }}>Explore More</Typography>
-        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+        <Box sx={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
           {travelBooking.map((item, i) => (
             <Card key={i} sx={{ width: 180, textAlign: "center" }}>
               <CardMedia component="img" height="120" image={item.img} alt={item.name} />
@@ -246,7 +249,7 @@ export default function SearchSection() {
           Trending Searches Near You <span style={{ color: "red", fontSize: "14px" }}>NEW</span>
         </Typography>
         <Typography variant="body2" sx={{ color: "gray", mb: 2 }}>Latest local trends around you</Typography>
-        <Box sx={{ display: "flex", overflowX: "auto", gap: 2, pb: 2 }}>
+        <Box sx={{ display: "flex", overflowX: "auto", gap: 5, pb: 2 }}>
           {trendingSearches.map((item, i) => (
             <Card key={i} sx={{ minWidth: 200, textAlign: "center" }}>
               <CardMedia component="img" height="120" image={item.img} alt={item.name} />
@@ -275,5 +278,9 @@ export default function SearchSection() {
         Download App
       </Button>
     </Box>
+
+    
+    
   );
-}
+};
+ 
