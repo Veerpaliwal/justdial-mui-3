@@ -6,14 +6,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import MenuItem from "@mui/material/MenuItem";   // ✅ missing tha
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import MyLocationIcon from "@mui/icons-material/MyLocation"; // Detect Location icon
+import MyLocationIcon from "@mui/icons-material/MyLocation";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import TranslateIcon from "@mui/icons-material/Translate";
@@ -39,8 +39,6 @@ export default function Header() {
           const { latitude, longitude } = pos.coords;
           console.log("Latitude:", latitude, "Longitude:", longitude);
 
-          // Abhi ke liye hardcoded city dikhayenge
-          // Future me API call karke real city fetch kar sakte ho
           setLocation("Neemuch (MP)");
         },
         () => alert("Location access denied")
@@ -63,7 +61,11 @@ export default function Header() {
   return (
     <AppBar
       position="fixed"
-      sx={{ backgroundColor: "#fff", color: "#000", boxShadow: "0 2px 5px rgba(0,0,0,0.1)" }}
+      sx={{
+        backgroundColor: "#fff",
+        color: "#000",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+      }}
     >
       <Toolbar sx={{ display: "flex", alignItems: "center", gap: 3 }}>
         {/* Logo */}
@@ -72,7 +74,10 @@ export default function Header() {
         </Typography>
 
         {/* Location Select */}
-        <FormControl size="small" sx={{ width: 200, bgcolor: "#fff", borderRadius: 1 }}>
+        <FormControl
+          size="small"
+          sx={{ width: 200, bgcolor: "#fff", borderRadius: 1 }}
+        >
           <Select
             value={location}
             onChange={handleLocationChange}
@@ -117,7 +122,7 @@ export default function Header() {
         {/* Spacer */}
         <Box sx={{ flexGrow: 1 }} />
 
-        {/* Language Dropdown */}
+        {/* Language Dropdown (empty for now) */}
         <Button
           onClick={handleLangOpen}
           endIcon={<ArrowDropDownIcon />}
@@ -126,17 +131,23 @@ export default function Header() {
         >
           En
         </Button>
-        <Menu anchorEl={langAnchor} open={Boolean(langAnchor)} onClose={handleLangClose}>
-          <MenuItem onClick={handleLangClose}>Hindi - H</MenuItem>
-          <MenuItem onClick={handleLangClose}>English - E</MenuItem>
-          <MenuItem onClick={handleLangClose}>ગુજરાતી - GU</MenuItem>
-          <MenuItem onClick={handleLangClose}>ಕರ್ನಾಟಕ - KN</MenuItem>
-          <MenuItem onClick={handleLangClose}>தமிழ் - TM</MenuItem>
+        <Menu
+          anchorEl={langAnchor}
+          open={Boolean(langAnchor)}
+          onClose={handleLangClose}
+        >
+          {/* Empty dropdown */}
+          <MenuItem disabled>No languages available</MenuItem>
         </Menu>
 
         {/* Right Links */}
-        <Button sx={{ textTransform: "none", color: "#000" }}>Investor Relations</Button>
-        <Button startIcon={<BarChartIcon />} sx={{ textTransform: "none", color: "#000" }}>
+        <Button sx={{ textTransform: "none", color: "#000" }}>
+          Investor Relations
+        </Button>
+        <Button
+          startIcon={<BarChartIcon />}
+          sx={{ textTransform: "none", color: "#000" }}
+        >
           Free Listing
         </Button>
 

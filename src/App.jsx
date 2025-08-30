@@ -1,7 +1,8 @@
 
 import './App.css'
-import Header from './components/header'
+
 import SearchSection from './components/SearchSection'
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <>
       <Header />
-      <SearchSection/>
+      <SearchSection />
+      <Footer/>
     </>
   )
 }

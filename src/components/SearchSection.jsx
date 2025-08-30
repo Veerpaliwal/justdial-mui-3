@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,6 +12,9 @@ import CardMedia from "@mui/material/CardMedia";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import DownloadIcon from "@mui/icons-material/Download";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Link from "@mui/material/Link";
 
 export default function SearchSection() {
   // Rotating text
@@ -118,9 +121,116 @@ export default function SearchSection() {
   ];
 
 
-  
+    const movies = [
+    {
+      name: "Nobody 2",
+      lang: "English • 2D",
+      rating: "85%",
+      img: "https://images.jdmagicbox.com/movies/centralized_161995312025_06_26_03_34_13_220.jpg?w=1920&q=75",
+    },
+    {
+      name: "Saiyaara ",
+      lang: "Hindi • 2D",
+      rating: "74%",
+      img: "https://images.jdmagicbox.com/movies/centralized_162039232025_06_20_02_34_02_220.jpg?w=1920&q=75",
+    },
+    {
+      name: "F1",
+      lang: "English • 2D",
+      rating: "90%",
+      img: "https://images.jdmagicbox.com/movies/centralized_161391492024_11_27_06_32_12_220.jpg?w=1920&q=75",
+    },
+    {
+      name: "Maa Jaye",
+      lang: "Punjabi • 2D",
+      rating: "90%",
+      img: "https://images.jdmagicbox.com/movies/centralized_162144372025_08_05_01_05_14_220.jpg?w=1920&q=75",
+    },
+  ];
 
-  return (
+
+  const popularSearches = [
+  {
+    name: "Pathology Labs",
+    img: "http://127.0.0.1:5500/img/doctor-with-test-tube.png",
+  },
+  {
+    name: "Dentists",
+    img: "http://127.0.0.1:5500/img/shot-of-a-young-woman-checking-her-results-in-the-dentists-office(1).png",
+  },
+  {
+    name: "Gynaecologist",
+    img: "http://127.0.0.1:5500/img/image(5).png",
+  },
+  {
+    name: "Playgroups",
+    img: "http://127.0.0.1:5500/img/image(19).png",
+  },
+  {
+    name: "Car Rental",
+    img: "http://127.0.0.1:5500/img/image.png",
+  },
+  
+  ];
+  
+const rainyData = [
+  { img: "http://127.0.0.1:5500/img/image(6).png", title: "Plumber" },
+  { img: "http://127.0.0.1:5500/img/0755px755.x755.170905054501.png", title: "Tarpaulin Dealers" },
+  { img: "http://127.0.0.1:5500/img/image(7).png", title: "Waterproofing Contractors" },
+  { img: "http://127.0.0.1:5500/img/image(20).png", title: "Inverter Dealers" },
+  { img: "http://127.0.0.1:5500/img/a-roadside-tea-stall-in-mumbai-who-makes-amazing-green-tea-made-of-S1YCXM.png", title: "Tea Stalls" },
+];
+
+  const reviewsData = [
+  {
+    company: "Samarth Enterprises",
+    location: "Ghantali-Thane West – Mumbai",
+    companyImg: "http://127.0.0.1:5500/img/022pxx22.xx22.130218124317.png",
+    userImg: "http://127.0.0.1:5500/img/4850.png",
+    user: "raju",
+    review: "business committed to delivering quality products and services",
+  },
+  {
+    company: "Sadguru Enterprises",
+    location: "Ghantali-Thane West – Mumbai",
+    companyImg: "http://127.0.0.1:5500/img/image(21).png",
+    userImg: "http://127.0.0.1:5500/img/image(23).png",
+    user: "hardik",
+    review: "Sadguru Enterprises is dedicated to providing reliable services",
+  },
+    {
+    company: "All Season Dry Cloths",
+    location: "Ghantali-Thane West – Mumbai",
+    companyImg: "http://127.0.0.1:5500/img/image(22).png",
+    userImg: "http://127.0.0.1:5500/img/360_F_375677469_UzQt3JpGywuXxkOlCkG7SJXXbiGsampv.png",
+    user: "hardik",
+    review: "Dry system is excellent, easy operated, I am satisfied, Thank you.",
+  },
+];
+
+  
+  
+const additionalCards = [
+  {
+    img: "http://127.0.0.1:5500/img/carnival-mela-banner-on-transparent-background-png.png",
+    title:
+      "The Banarasi Silk Saree Edit: Celeb-Approved Ways to Rock Banarasi Sarees.",
+  },
+  {
+    img: "http://127.0.0.1:5500/img/trendy-sports-shoes-on-white-260nw-2547663049(1).png",
+    title: "Fresh Feet Forward: Top Sneaker Cleaning Services in Mumbai.",
+  },
+  {
+    img: "http://127.0.0.1:5500/img/sport-collage-action-athletes-various-260nw-2462169765.png",
+    title: "Sports Management Courses in Mumbai: Meets Profession.",
+  },
+  {
+    img: "http://127.0.0.1:5500/img/image(31).png",
+    title: "Everything You Need to Know About Subjects in Humanities.",
+  },
+];
+  
+  return(
     <Box sx={{ mt: 12, px: 3 }}>
       {/* Rotating text */}
       <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
@@ -259,6 +369,204 @@ export default function SearchSection() {
         </Box>
       </Box>
 
+
+
+     <div className="container my-5">
+      <h2>Latest Movies & Review</h2>
+      <div className="row g-3">
+        {movies.map((movie, i) => (
+          <div className="col-3" key={i}>
+            <div className="card h-100 w-100">
+              <img
+                src={movie.img}
+                className="card-img-top img-fluid"
+                alt={movie.name}
+              />
+              <div className="card-body">
+                <h6>{movie.name}</h6>
+                <p className="text-muted">{movie.lang}</p>
+                <span className="badge bg-danger">{movie.rating}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      </div>
+      
+
+ <Box className="container my-5">
+      <Typography variant="h5" fontWeight="bold" mb={3}>
+        Popular Searches
+      </Typography>
+
+      {/* Horizontal Scroll Wrapper */}
+      <Box
+        sx={{
+          display: "flex",
+          gap: 2,
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+      >
+        {popularSearches.map((item, index) => (
+          <Card
+            key={index}
+            sx={{
+              minWidth: 200,
+              boxShadow: 3,
+              borderRadius: 2,
+              flexShrink: 0,
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="150"
+              image={item.img}
+              alt={item.name}
+            />
+            <CardContent
+              sx={{
+                bgcolor: "primary.main",
+                color: "#fff",
+                textAlign: "center",
+                py: 2,
+              }}
+            >
+              <Typography variant="subtitle1" fontWeight="bold">
+                {item.name}
+              </Typography>
+              <Button
+                variant="contained"
+                size="small"
+                sx={{
+                  mt: 1,
+                  bgcolor: "#fff",
+                  color: "primary.main",
+                  fontWeight: "bold",
+                  "&:hover": { bgcolor: "grey.200" },
+                }}
+              >
+                Enquire Now
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
+    </Box>
+
+      
+       <Box className="container" my={5}>
+      <Box className="category-box">
+        <Typography variant="h5" fontWeight="bold">
+          Rainy Day Essentials <Chip label="SEASONAL" color="error" size="small" />
+        </Typography>
+        <Typography variant="body2" color="text.secondary" mb={2}>
+          Discover wide range of rainy collection
+        </Typography>
+
+        <Box display="flex" gap={2} overflow="auto">
+          {rainyData.map((item, index) => (
+            <Card key={index} sx={{ minWidth: 200 }}>
+              <CardMedia component="img" height="140" image={item.img} alt={item.title} />
+              <CardContent>
+                <Typography variant="subtitle1">{item.title}</Typography>
+                <Link href="#" color="primary" underline="hover">
+                  Explore &gt;
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      </Box>
+    </Box>
+
+     <Box className="container" my={5}>
+      <Typography variant="h4" mb={3}>
+        Recent Activity
+      </Typography>
+      <Box display="grid" gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={3}>
+        {reviewsData.map((item, i) => (
+          <Card key={i} sx={{ boxShadow: 3 }}>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              px={2}
+              py={1}
+              borderBottom="1px solid #eee"
+            >
+              <Box>
+                <Typography fontWeight="bold">{item.company}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.location}
+                </Typography>
+              </Box>
+              <Chip
+                label="WhatsApp"
+                size="small"
+                avatar={<img src="http://127.0.0.1:5500/img/whatsapp-1623579_1280.png" alt="whatsapp" width={18} />}
+              />
+            </Box>
+
+            <CardMedia component="img" height="160" image={item.companyImg} alt={item.company} />
+
+            <CardContent sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
+              <img
+                src={item.userImg}
+                alt={item.user}
+                style={{ width: 50, height: 50, borderRadius: "50%", objectFit: "cover" }}
+              />
+              <Box>
+                <Typography fontWeight="600">{item.user}</Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Wrote a review
+                </Typography>
+                <Typography variant="body2" color="warning.main">
+                  ★★★★★
+                </Typography>
+                <Typography variant="body2">{item.review}</Typography>
+              </Box>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
+      </Box>  
+      
+
+        <Box className="container" my={5} display="flex" flexWrap="wrap" gap={3}>
+      {additionalCards.map((card, index) => (
+        <Card
+          key={index}
+          sx={{
+            width: 260,
+            height: 350,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            boxShadow: 3,
+          }}
+        >
+          <CardMedia
+            component="img"
+            height="160"
+            image={card.img}
+            alt={card.title}
+          />
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography variant="subtitle1" fontWeight="600">
+              {card.title}
+            </Typography>
+          </CardContent>
+          <Box px={2} pb={2}>
+            <Button variant="contained" size="small">
+              Explore &gt;
+            </Button>
+          </Box>
+        </Card>
+      ))}
+    </Box>
+
       {/* Download App Button */}
       <Button
         variant="outlined"
@@ -280,7 +588,13 @@ export default function SearchSection() {
     </Box>
 
     
-    
-  );
+   
+    );
+  
 };
+    
+
+    
+  
+
  
