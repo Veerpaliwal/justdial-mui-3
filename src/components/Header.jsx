@@ -6,11 +6,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";   // ✅ missing tha
+import MenuItem from "@mui/material/MenuItem";   
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
+
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
@@ -68,10 +69,13 @@ export default function Header() {
       }}
     >
       <Toolbar sx={{ display: "flex", alignItems: "center", gap: 3 }}>
-        {/* Logo */}
-        <Typography variant="h6" sx={{ fontWeight: "bold", color: "#0078d4" }}>
-          Just<span style={{ color: "orange" }}>dial</span>
-        </Typography>
+            {/* Logo Image */}
+      <img 
+        src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jdlogosvg.svg" 
+        alt="Justdial Logo" 
+        style={{ height: 30, width: "auto" }} 
+      />
+
 
         {/* Location Select */}
         <FormControl

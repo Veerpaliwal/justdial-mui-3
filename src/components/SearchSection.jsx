@@ -16,6 +16,7 @@ import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
 
+
 export default function SearchSection() {
   // Rotating text
   const rotatingItems = [
@@ -230,7 +231,8 @@ const additionalCards = [
   },
 ];
   
-  return(
+  return (
+ 
     <Box sx={{ mt: 12, px: 3 }}>
       {/* Rotating text */}
       <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
