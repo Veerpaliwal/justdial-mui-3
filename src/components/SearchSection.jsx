@@ -17,6 +17,7 @@ import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
 
 
+
 export default function SearchSection() {
   // Rotating text
   const rotatingItems = [
@@ -232,6 +233,7 @@ const additionalCards = [
 ];
   
   return (
+
  
     <Box sx={{ mt: 12, px: 3 }}>
       {/* Rotating text */}
@@ -255,20 +257,20 @@ const additionalCards = [
             )
           }}
         />
-        <TextField
+       <TextField
           variant="outlined"
           size="small"
           placeholder="Search for Services"
-          sx={{ bgcolor: "#fff", width: 300 }}
+          sx={{ bgcolor: "#fff", width: 300, borderRadius: 2 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon color="primary" />
               </InputAdornment>
-            )
+            ),
           }}
         />
-      </Box>
+              </Box>
 
       {/* Slider + Grid */}
       <Box sx={{ display: "flex", gap: 3, flexWrap: "wrap", mb: 4 }}>
