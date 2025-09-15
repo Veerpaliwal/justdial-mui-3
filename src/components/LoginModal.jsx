@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 export default function LoginModal({ show, handleClose }) {
   const [mobile, setMobile] = useState("");
@@ -10,6 +12,24 @@ export default function LoginModal({ show, handleClose }) {
       return;
     }
     alert(`OTP sent to ${mobile}`);
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const token = credentialResponse.credential;
+
+      // Strapi ko bhejo
+      const res = await axios.post("http://localhost:1337/api/auth/google/callback", {
+        token,
+      });
+
+      console.log("Strapi Response:", res.data);
+      alert("Google Login Successful!");
+      handleClose();
+    } catch (err) {
+      console.error("Google Login Error:", err);
+      alert("Google login failed!");
+    }
   };
 
   return (
@@ -65,15 +85,17 @@ export default function LoginModal({ show, handleClose }) {
 
           <div className="text-center my-2 text-muted">Or Login Using</div>
 
-          <Button className="w-100 mb-2" variant="outline-dark">
-            <img
-              src="https://developers.google.com/identity/images/g-logo.png"
-              alt="Google"
-              width={20}
-              className="me-2"
-            />
-            Continue with Google
-          </Button>
+          {/* ✅ Google Login Button */}
+          <GoogleOAuthProvider clientId="688007779719-qefjh4ej1l1sat3bi8f5tgdh7dkumqc6.apps.googleusercontent.com">
+            <div className="d-flex justify-content-center">
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={() => {
+                  console.log("Google Login Failed");
+                }}
+              />
+            </div>
+          </GoogleOAuthProvider>
 
           <div className="text-center mt-2">
             <a href="#" onClick={handleClose}>

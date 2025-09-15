@@ -7,10 +7,10 @@ function Footer() {
         {/* Follow us section */}
         <Box display="flex" alignItems="center" mb={3}>
           <Typography variant="body1">Follow us on</Typography>
-          <Box component="img" src="http://127.0.0.1:5500/img/facebook-social-media-icon-3d_466778-4384.png" alt="Facebook" width={25} height={25} ml={2} />
-          <Box component="img" src="http://127.0.0.1:5500/img/image(11).png" alt="Instagram" width={25} height={25} ml={2} />
-          <Box component="img" src="http://127.0.0.1:5500/img/red-youtube-logo-social-media-logo_197792-1803.png" alt="YouTube" width={25} height={25} ml={2} />
-          <Box component="img" src="http://127.0.0.1:5500/img/image(12).png" alt="Twitter" width={25} height={25} ml={2} />
+          <Box component="img" src="https://www.facebook.com/images/icons/FBLogo_Blueprint.png" alt="Facebook" width={25} height={25} ml={2} />
+          <Box component="img" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/flw_insta_active.svg" alt="Instagram" width={25} height={25} ml={2} />
+          <Box component="img" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/flw_youtube_active.svg" alt="YouTube" width={25} height={25} ml={2} />
+          <Box component="img" src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/flw_linkedIn_active.svg" alt="linkedin" width={25} height={25} ml={2} />
         </Box>
 
         {/* Intro Section */}
@@ -31,7 +31,7 @@ function Footer() {
 
       <div className="row text-left mt-3">
         <div className="col-md-3">
-          <img src="./img/image(13).png" alt="Jobs" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_jobs.svg?w=96&q=75" alt="Jobs" width="25" height="25" className="ms-2" />
           <strong>Jobs</strong>
           <p>
             Providing pertinent jobs to job seekers and relevant profiles to employers,
@@ -40,21 +40,21 @@ function Footer() {
           </p>
         </div>
         <div className="col-md-3">
-          <img src="./img/2503508.png" alt="Movies" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_movies.svg?w=96&q=75" alt="Movies" width="25" height="25" className="ms-2" />
           <strong>Movies</strong>
           <p>
             This gives you access to book tickets and keep updated with the latest movies...
           </p>
         </div>
         <div className="col-md-3">
-          <img src="./img/9759793.png" alt="Spa & Salon" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_spa-salon.svg?w=96&q=75" alt="Spa & Salon" width="25" height="25" className="ms-2" />
           <strong>Spa & Salon</strong>
           <p>
             Skip the wait to get pampered at a spa or a salon. In a few clicks, 'Book an Appointment'...
           </p>
         </div>
         <div className="col-md-3">
-          <img src="./img/9759793.png" alt="Repair & Services" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_repairservices.svg?w=96&q=75" alt="Repair & Services" width="25" height="25" className="ms-2" />
           <strong>Repair & Services</strong>
           <p>
             Find the 'Best Deal', be it for repairing your air-conditioner, getting your car serviced...
@@ -64,17 +64,17 @@ function Footer() {
 
       <div className="row text-left mt-3">
         <div className="col-md-3">
-          <img src="./img/image(15).png" alt="Doctor Appointment" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_doctorappointment.svg?w=96&q=75" alt="Doctor Appointment" width="25" height="25" className="ms-2" />
           <strong>Doctor Appointment</strong>
           <p>Book appointments with top doctors in your city with ease.</p>
         </div>
         <div className="col-md-3">
-          <img src="./img/image(4).png" alt="Real Estate Agents" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_realestateagent.svg?w=96&q=75" alt="Real Estate Agents" width="25" height="25" className="ms-2" />
           <strong>Real Estate Agents</strong>
           <p>Find trusted real estate agents for buying, selling, or renting properties.</p>
         </div>
         <div className="col-md-3">
-          <img src="./img/give-money-vector-outline-icon-600nw-1520378267.png" alt="Online Recharge" width="25" height="25" className="ms-2" />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/ftr_onlinerecharge.svg?w=96&q=75" alt="Online Recharge" width="25" height="25" className="ms-2" />
           <strong>Online Recharge/Bill Payment</strong>
           <p>Recharge your mobile or pay bills instantly through Justdial.</p>
         </div>

@@ -56,21 +56,9 @@ export default function Header() {
 
   // Example list of locations
   const locations = [
-    "Delhi",
-    "Mumbai",
-    "Jaipur",
-    "Bangalore",
-    "Chennai",
-    "Hyderabad",
-    "Kolkata",
-    "Pune",
-    "Lucknow",
-    "Indore",
-    "Surat",
-    "Ahmedabad",
-    "Bhopal",
-    "Nagpur",
-    "Patna",
+    "Delhi", "Mumbai", "Jaipur", "Bangalore", "Chennai", "Hyderabad",
+    "Kolkata", "Pune", "Lucknow", "Indore", "Surat", "Ahmedabad",
+    "Bhopal", "Nagpur", "Patna"
   ];
 
   // Detect location function
@@ -99,25 +87,30 @@ export default function Header() {
     }
   };
 
-  // 🔹 Fetch categories from Strapi (v5 structure)
+  // 🔹 Fetch categories from API
   useEffect(() => {
     axios
       .get("http://localhost:1337/api/business-categories")
       .then((res) => {
-        const cats = res.data.data.map((cat) => cat.name); // ✅ direct name
+        const cats = res.data.data.map((cat) => cat.name);
         console.log("Categories from API:", cats);
-        setCategories(cats);
+        if (cats.length === 0) {
+          setCategories(["Restaurants", "Hotels", "Hospitals", "Schools"]);
+        } else {
+          setCategories(cats);
+        }
       })
-      .catch((err) => console.error("API Error:", err));
+      .catch((err) => {
+        console.error("API Error:", err);
+        setCategories(["Restaurants", "Hotels", "Hospitals", "Schools"]);
+      });
   }, []);
 
   // 🔹 Fetch businesses when category selected
   useEffect(() => {
     if (selectedCategory) {
       axios
-        .get(
-          `http://localhost:1337/api/businesses?filters[category][$eq]=${selectedCategory}`
-        )
+        .get(`http://localhost:1337/api/businesses?filters[category][$eq]=${selectedCategory}`)
         .then((res) => setBusinesses(res.data.data))
         .catch((err) => console.error(err));
     }
@@ -164,40 +157,23 @@ export default function Header() {
           />
 
           {/* Location Select */}
-          <FormControl
-            size="small"
-            sx={{ width: 200, bgcolor: "#fff", borderRadius: 1 }}
-          >
+          <FormControl size="small" sx={{ width: 200, bgcolor: "#fff", borderRadius: 1 }}>
             <Select
               value={location}
               onChange={handleLocationChange}
               displayEmpty
-              startAdornment={
-                <InputAdornment position="start">
-                  <LocationOnIcon color="primary" />
-                </InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start"><LocationOnIcon color="primary" /></InputAdornment>}
               renderValue={(selected) => selected || "Select Location"}
               MenuProps={{
-                PaperProps: {
-                  style: {
-                    maxHeight: 200, // ✅ dropdown ki height limit
-                    overflowY: "auto", // ✅ scroll enable
-                  },
-                },
+                PaperProps: { style: { maxHeight: 200, overflowY: "auto" } },
               }}
             >
-              {/* Detect Location Option */}
               <MenuItem value="detect" sx={{ color: "blue", fontWeight: "bold" }}>
                 <MyLocationIcon sx={{ mr: 1, color: "blue" }} />
                 Detect Location
               </MenuItem>
-
-              {/* Normal Cities */}
               {locations.map((loc) => (
-                <MenuItem key={loc} value={loc}>
-                  {loc}
-                </MenuItem>
+                <MenuItem key={loc} value={loc}>{loc}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -209,26 +185,20 @@ export default function Header() {
               size="small"
               placeholder="Search categories..."
               value={search}
-              onClick={() => setFiltered(categories)} // ✅ click karte hi sab categories show
+              onClick={() => setFiltered(categories)}
               onChange={(e) => {
                 setSearch(e.target.value);
                 if (e.target.value.trim() === "") {
                   setFiltered(categories);
                 } else {
-                  setFiltered(
-                    categories.filter((cat) =>
-                      cat.toLowerCase().includes(e.target.value.toLowerCase())
-                    )
-                  );
+                  setFiltered(categories.filter((cat) =>
+                    cat.toLowerCase().includes(e.target.value.toLowerCase())
+                  ));
                 }
               }}
               sx={{ width: 220, bgcolor: "#fff", borderRadius: 1 }}
               InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon color="primary" />
-                  </InputAdornment>
-                ),
+                startAdornment: (<InputAdornment position="start"><SearchIcon color="primary" /></InputAdornment>),
               }}
             />
 
@@ -243,8 +213,9 @@ export default function Header() {
                   border: "1px solid #ddd",
                   borderRadius: 1,
                   zIndex: 9999,
-                  maxHeight: 200, // ✅ scroll limit
+                  maxHeight: 250,
                   overflowY: "auto",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
                 }}
               >
                 {filtered.map((cat, i) => (
@@ -252,8 +223,8 @@ export default function Header() {
                     key={i}
                     onClick={() => {
                       setSearch(cat);
-                      setSelectedCategory(cat); // ✅ category select
-                      setFiltered([]); // ✅ dropdown band
+                      setSelectedCategory(cat);
+                      setFiltered([]);
                     }}
                   >
                     {cat}
@@ -263,7 +234,6 @@ export default function Header() {
             )}
           </Box>
 
-          {/* Spacer */}
           <Box sx={{ flexGrow: 1 }} />
 
           {/* Language Dropdown */}
@@ -275,64 +245,38 @@ export default function Header() {
           >
             En
           </Button>
-          <Menu
-            anchorEl={langAnchor}
-            open={Boolean(langAnchor)}
-            onClose={handleLangClose}
-          >
+          <Menu anchorEl={langAnchor} open={Boolean(langAnchor)} onClose={handleLangClose}>
             <MenuItem disabled>No languages available</MenuItem>
           </Menu>
 
-          {/* Right Links */}
-          <Button sx={{ textTransform: "none", color: "#000" }}>
-            Investor Relations
-          </Button>
-          <Button
-            startIcon={<BarChartIcon />}
-            sx={{ textTransform: "none", color: "#000" }}
-          >
-            Free Listing
-          </Button>
-
-          <IconButton>
-            <NotificationsIcon />
-          </IconButton>
+          <Button sx={{ textTransform: "none", color: "#000" }}>Investor Relations</Button>
+          <Button startIcon={<BarChartIcon />} sx={{ textTransform: "none", color: "#000" }}>Free Listing</Button>
+          <IconButton><NotificationsIcon /></IconButton>
 
           <Button
             variant="contained"
             startIcon={<AccountCircleIcon />}
-            onClick={() => setOpenLogin(true)} // ✅ open login
+            onClick={() => setOpenLogin(true)}
           >
             Login / Sign-up
           </Button>
         </Toolbar>
       </AppBar>
 
-      {/* 🔹 Business Scroll Section (niche open hoga) */}
+      {/* 🔹 Business Scroll Section */}
       {selectedCategory && (
         <Box sx={{ mt: 12, px: 3 }}>
           <Typography variant="h6" sx={{ mb: 2 }}>
             {selectedCategory} Businesses
           </Typography>
 
-          <Box
-            sx={{
-              display: "flex",
-              gap: 2,
-              overflowX: "auto",
-              p: 1,
-              border: "1px solid #ddd",
-              borderRadius: 2,
-            }}
-          >
+          <Box sx={{ display: "flex", gap: 2, overflowX: "auto", p: 1, border: "1px solid #ddd", borderRadius: 2 }}>
             {businesses.length > 0 ? (
               businesses.map((biz) => (
                 <Card key={biz.id} sx={{ minWidth: 200, flex: "0 0 auto" }}>
                   <CardContent>
                     <Typography variant="h6">{biz.name}</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {biz.description}
-                    </Typography>
+                    <Typography variant="body2" color="text.secondary">{biz.description}</Typography>
                   </CardContent>
                 </Card>
               ))
@@ -346,15 +290,9 @@ export default function Header() {
       {/* 🔹 Login Modal */}
       <Dialog open={openLogin} onClose={() => setOpenLogin(false)} maxWidth="xs" fullWidth>
         <DialogTitle sx={{ textAlign: "center" }}>
-          <img
-            src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jdlogosvg.svg"
-            alt="logo"
-            height="35"
-          />
+          <img src="https://akam.cdn.jdmagicbox.com/images/icontent/jdrwd/jdlogosvg.svg" alt="logo" height="35"/>
           <Typography variant="h6">Welcome</Typography>
-          <Typography variant="body2" color="text.secondary">
-            Login for a seamless experience
-          </Typography>
+          <Typography variant="body2" color="text.secondary">Login for a seamless experience</Typography>
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -363,56 +301,29 @@ export default function Header() {
             label="Enter Mobile Number"
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
-            InputProps={{
-              startAdornment: <InputAdornment position="start">+91</InputAdornment>,
-            }}
+            InputProps={{ startAdornment: <InputAdornment position="start">+91</InputAdornment> }}
           />
-
           <FormControlLabel
             control={<Checkbox defaultChecked />}
             label={
               <Typography variant="body2">
                 I Agree to{" "}
-                <a href="#" style={{ color: "blue" }}>
-                  Terms and Conditions
-                </a>{" "}
-                &{" "}
-                <a href="#" style={{ color: "blue" }}>
-                  Privacy Policy
-                </a>
+                <a href="#" style={{ color: "blue" }}>Terms and Conditions</a> &{" "}
+                <a href="#" style={{ color: "blue" }}>Privacy Policy</a>
               </Typography>
             }
           />
-
-          <Button fullWidth variant="contained" sx={{ mt: 2 }} onClick={handleLogin}>
-            LOGIN WITH OTP
-          </Button>
-
-          <Typography align="center" sx={{ my: 1, color: "gray" }}>
-            Or Login Using
-          </Typography>
-
-          <Button
-            fullWidth
-            variant="outlined"
-            startIcon={
-              <img
-                src="https://developers.google.com/identity/images/g-logo.png"
-                alt="Google"
-                width={20}
-              />
-            }
-          >
+          <Button fullWidth variant="contained" sx={{ mt: 2 }} onClick={handleLogin}>LOGIN WITH OTP</Button>
+          <Typography align="center" sx={{ my: 1, color: "gray" }}>Or Login Using</Typography>
+          <Button fullWidth variant="outlined" startIcon={<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" width={20}/>}>
             Continue with Google
           </Button>
-
           <Typography align="center" sx={{ mt: 2 }}>
-            <a href="#" onClick={() => setOpenLogin(false)}>
-              Skip for now
-            </a>
+            <a href="#" onClick={() => setOpenLogin(false)}>Skip for now</a>
           </Typography>
         </DialogContent>
       </Dialog>
     </>
   );
-}
+} 
+
