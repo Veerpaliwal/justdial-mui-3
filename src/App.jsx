@@ -5,6 +5,8 @@ import Footer from "./components/Footer"
 import BusinessListing from "./pages/BusinessListing"
 import BusinessDetails from "./pages/BusinessDetails"
 import { Routes, Route } from "react-router-dom"
+import Download from './pages/Download'
+
 
 function App() {
   return (
@@ -14,8 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<SearchSection />} />
         <Route path="/businessListing" element={<BusinessListing />} />
-        <Route path="/businessDetails" element={<BusinessDetails />} />
-    
+        <Route path="/businessDetails" element={<BusinessDetails />} />    
+        <Route path="/download" element={<Download />} />
+       
       </Routes>
 
       <Footer />

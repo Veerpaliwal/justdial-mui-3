@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -77,7 +78,7 @@ export default function SearchSection() {
     {
       name: "Restaurants",
       img: "https://akam.cdn.jdmagicbox.com/images/icons/newwap/newhotkey/restaurant-2022.svg?w=96&q=75",
-      link: "/businessListing", // Updated link
+      link: "/businessListing",
     },
     {
       name: "Hotels",
@@ -369,6 +370,12 @@ export default function SearchSection() {
         "Best Boarding Schools in India: A Class Apart in Education and Excellence",
     },
   ];
+
+  const navigate = useNavigate();
+
+  const handleDownloadClick = () => {
+    navigate('/download');
+  };
 
   return (
     <Box sx={{ mt: 12, px: 3 }}>
@@ -851,6 +858,7 @@ export default function SearchSection() {
       <Button
         variant="outlined"
         startIcon={<DownloadIcon />}
+        onClick={handleDownloadClick}
         sx={{
           position: "fixed",
           top: "80px",
