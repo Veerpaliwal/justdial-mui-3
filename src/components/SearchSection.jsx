@@ -17,6 +17,8 @@ import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
+import MicIcon from "@mui/icons-material/Mic";
+
 
 export default function SearchSection() {
   // Rotating text
@@ -51,7 +53,10 @@ export default function SearchSection() {
     "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_webflight_2024.webp",
     "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/mandapweb.png?t=1",
     "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_hotels_2024.webp",
+    "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_interiordesigners_2024.webp",
+    "https://akam.cdn.jdmagicbox.com/images/icontent/newwap/web2022/banner_bills_2024.webp"
   ];
+ 
 
   // 4 Grid images
   const gridItems = [
@@ -391,7 +396,7 @@ export default function SearchSection() {
           variant="outlined"
           size="small"
           placeholder="Select Location"
-          sx={{ bgcolor: "#fff", width: 220 }}
+          sx={{ bgcolor: "#E8E8E8", width: 220 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -404,11 +409,17 @@ export default function SearchSection() {
           variant="outlined"
           size="small"
           placeholder="Search for Services"
-          sx={{ bgcolor: "#fff", width: 300, borderRadius: 2 }}
+          sx={{ bgcolor: "#E8E8E8", width: 450, borderRadius: 2 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon color="primary" />
+                
+              </InputAdornment>
+            ),
+             endAdornment: (
+              <InputAdornment position="end">
+                <MicIcon color="primary" />
               </InputAdornment>
             ),
           }}

@@ -157,7 +157,7 @@ export default function Header() {
           />
 
           {/* Location Select */}
-          <FormControl size="small" sx={{ width: 200, bgcolor: "#fff", borderRadius: 1 }}>
+          <FormControl size="small" sx={{ width: 200, bgcolor: "#E8E8E8", borderRadius: 1 }}>
             <Select
               value={location}
               onChange={handleLocationChange}
@@ -196,9 +196,11 @@ export default function Header() {
                   ));
                 }
               }}
-              sx={{ width: 220, bgcolor: "#fff", borderRadius: 1 }}
+              sx={{ width: 220, bgcolor: "#E8E8E8", borderRadius: 1 }}
               InputProps={{
                 startAdornment: (<InputAdornment position="start"><SearchIcon color="primary" /></InputAdornment>),
+                 
+                            
               }}
             />
 
